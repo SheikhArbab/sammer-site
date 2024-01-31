@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Slider, Accordion,Card } from '../components/index'
 
-const Home = () => {
+const Home = ({ setProgress }) => {
+
+  useEffect(() => {
+    setProgress(20)
+    setTimeout(() => {
+      setProgress(100)
+    }, 500);
+  }, [])
+
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <Slider />
+      <Accordion />
+      <Card /> 
+    </>
   )
 }
 
