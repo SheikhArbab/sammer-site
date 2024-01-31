@@ -1,4 +1,3 @@
-import { Button } from 'keep-react'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ToggleContext } from '../context/ToggleContext'
@@ -8,10 +7,11 @@ const Header = () => {
   const { toggle, setToggle } = useContext(ToggleContext);
 
   const [scrolling, setScrolling] = useState(false);
+  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 400) {
         setScrolling(true);
       } else {
         setScrolling(false);
@@ -25,26 +25,45 @@ const Header = () => {
     };
   }, []);
 
+  const handleLinkClick = () => {
+    // Scroll to the top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // You can adjust the scrolling behavior if needed
+    });
+
+    // Update the scroll state if it's stored in a state variable
+    setScroll(0);
+  };
+
   return (
-    <header className={`${scrolling ? 'bg-black/70 border border-black ' : 'glass'} text-gray-600 body-font fixed w-full top-0 duration-300 transition-all z-10 ${toggle && 'bottom-0'}`}>
+    <header className={`${scrolling ? 'bg-black/75 border border-black ' : 'glass'} text-gray-600 body-font fixed w-full top-0 duration-300 transition-all z-10 ${toggle && 'bottom-0'}`}>
       <div className="container flex flex-wrap p-5 flex-row items-center justify-between  mx-auto">
         <Link to={'/'} className="flex title-font font-medium items-center text-gray-900 ">
           <img src="./vite.svg" alt="" />
           <span className="ml-3 text-xl text-white font-semibold ">Ai ChatBot</span>
         </Link>
         <nav className={`hidden flex-col gap-3 md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 md:flex-row	md:flex flex-wrap items-center text-base justify-center`}>
-          <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">First Link</Link>
-          <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Second Link</Link>
-          <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Third Link</Link>
-          <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Fourth Link</Link>
+          <button
+            onClick={handleLinkClick}
+            className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Home</button>
+          <a href={'#about'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">About</a>
+          <a href={`#services`} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Services</a>
+          <a href={'#blog'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Blog</a>
+          <a href={'#testimonials'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Testimonials</a>
+          <a href={'#faqs'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">FAQs</a>
         </nav>
 
         {toggle &&
           <nav className={`w-full flex flex-col absolute left-16 top-24 h-full gap-3 font-semibold`}>
-            <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">First Link</Link>
-            <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Second Link</Link>
-            <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Third Link</Link>
-            <Link className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Fourth Link</Link>
+            <button
+              onClick={handleLinkClick}
+              className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Home</button>
+            <a href={'#about'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">About</a>
+            <a href={`#services`} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Services</a>
+            <a href={'#blog'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Blog</a>
+            <a href={'#testimonials'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">Testimonials</a>
+            <a href={'#faqs'} className="mr-5 hover:text-gray-300 duration-300 transition-all text-white">FAQs</a>
           </nav>
         }
 
@@ -69,8 +88,7 @@ const Header = () => {
 
       </div>
     </header>
-
   )
 }
 
-export default Header
+export default Header;

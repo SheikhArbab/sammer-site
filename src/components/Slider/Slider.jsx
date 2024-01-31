@@ -10,14 +10,14 @@ const Slider = () => {
       {
         slides.map((slide, i) => (
           <figure
-            className='w-full h-full bg-gray-950 relative'
+            className='w-full h-full bg-black relative'
             key={i}>
             <img
-              className='object-cover w-full h-full  opacity-75'
+              className='object-cover w-full h-full  opacity-50'
               src={slide.img}
               alt="slider"
             />
-            <h1 className='absolute top-[50%] -translate-y-[50%] text-white font-bold text-3xl left-14'>{slide.text}</h1>
+            <h1 className='absolute top-[50%] w-[48%] -translate-y-[50%] text-white font-bold text-4xl left-14'>{slide.text}</h1>
           </figure>
         ))
       }

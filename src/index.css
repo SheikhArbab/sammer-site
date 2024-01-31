@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  scroll-behavior: smooth !important;
+}
 
 ::-webkit-scrollbar {
   width: 8px;

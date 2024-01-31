@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      <LoadingBar color='black' shadow={true} progress={progress} onLoaderFinished={() => setProgress(0)} />
+      <LoadingBar color='purple' shadow={true} progress={progress} onLoaderFinished={() => setProgress(0)} />
       <RouterProvider router={router} />
     </>
   )
