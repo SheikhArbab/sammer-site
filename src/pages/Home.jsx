@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import reviews from '../components/Testimonials/Data'
-import { Slider, Accordion, Card, Testimonials } from '../components/index'
+import { Slider, Accordion, Card, Testimonials, About, Blog } from '../components/index'
 
 const Home = ({ setProgress }) => {
 
@@ -10,20 +9,16 @@ const Home = ({ setProgress }) => {
       setProgress(100)
     }, 500);
   }, [])
- 
+
 
   return (
     <>
       <Slider />
-      <Accordion />
+      <About />
       <Card />
-      {
-        reviews.map((r, i) => (
-      <div className="flex bg-red-500 flex-wrap ">
-            <Testimonials key={i} image={r.image} title={r.title} quote={r.quote} />
-      </div>
-        ))
-      }
+      <Blog />
+      <Testimonials />
+      <Accordion />
     </>
   )
 }

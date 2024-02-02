@@ -17,7 +17,7 @@ const Slider = () => {
               src={slide.img}
               alt="slider"
             />
-            <h1 className='absolute top-[50%] w-[48%] -translate-y-[50%] text-white font-bold text-4xl left-14'>{slide.text}</h1>
+            <h1 className='absolute top-[50%] md:w-[48%] -translate-y-[50%] text-white font-bold text-2xl md:text-4xl left-14'>{slide.text}</h1>
           </figure>
         ))
       }
